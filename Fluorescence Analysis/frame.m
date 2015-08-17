@@ -1,6 +1,7 @@
 classdef frame
-    %FRAME Summary of this class goes here
-    %   Detailed explanation goes here
+    %FRAME: a single image from a movie
+    %   methods:    showFrame(obj) - shows frame as image with adjusted contrast
+    %               
     
     properties
         time;
@@ -9,13 +10,15 @@ classdef frame
     end
     
     methods
+        %%% initializes frame - adjust the 'slide' equation for different experiment setups
         function obj = frame(movie,time,channel)
-            slide = time*(movie.timeCount-1)+channel;
+            slide = time+channel*(movie.channelCount-1);
             obj.matrix = movie.matrix(:,:,slide);
             obj.time = time;
             obj.channel = channel;
         end
         
+        %%% shows frame as image
         function showFrame(obj)
             adjust = double(obj.matrix);
             adjust = adjust - min(min(adjust));
