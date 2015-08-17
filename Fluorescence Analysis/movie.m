@@ -34,7 +34,7 @@ classdef movie < handle     % uses handle to make matrix changes
             if obj.bits == 8
                 obj.matrix = uint8(zeros(obj.yPixels,obj.xPixels,obj.frameCount));
             elseif obj.bits == 32
-                obj.matrix = uint16(zeros(obj.yPixels,obj.xPixels,obj.frameCount));
+                obj.matrix = uint32(zeros(obj.yPixels,obj.xPixels,obj.frameCount));
             else
                 obj.matrix = uint16(zeros(obj.yPixels,obj.xPixels,obj.frameCount));
             end

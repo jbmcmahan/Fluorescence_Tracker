@@ -12,7 +12,7 @@ classdef frame
     methods
         %%% initializes frame - adjust the 'slide' equation for different experiment setups
         function obj = frame(movie,time,channel)
-            slide = time+channel*(movie.channelCount-1);
+            slide = time*(movie.timeCount)+channel;
             obj.matrix = movie.matrix(:,:,slide);
             obj.time = time;
             obj.channel = channel;
@@ -25,7 +25,7 @@ classdef frame
             adjust = adjust / max(max(adjust));
             figure;
             imshow(adjust);
-            str = sprintf('Time %i, Channel %i',obj.time,obj.channel)
+            str = sprintf('Time %i, Channel %i',obj.time,obj.channel);
             title(str);
         end
     end
