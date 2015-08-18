@@ -34,14 +34,10 @@ classdef frame
             adjust = double(obj.matrix);
             adjust = adjust - min(min(adjust));
             adjust = adjust / max(max(adjust));
-            str = sprintf('Define the %s',type);
+            str = sprintf('Define the %s for Channel %i, Time %i',type,obj.channel,obj.time);
             figure('Name',str);
             mask = double(roipoly(adjust));
             close all;
         end
-        
-        
-        
     end
 end
-
