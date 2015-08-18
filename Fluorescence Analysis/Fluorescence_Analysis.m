@@ -9,10 +9,10 @@ movie1 = movie(18);
 movie1.storeMatrix();
 
 %%% create fluorescent matrices
-background = zeros(movie1.timeCount, movie1.channelCount, 'double');
-cell = zeros(movie1.timeCount, movie1.channelCount, 'double');
-nucleus = zeros(movie1.timeCount, movie1.channelCount, 'double');
-cytoplasm = zeros(movie1.timeCount, movie1.channelCount, 'double');
+background = zeros(movie1.channelCount, movie1.timeCount, 'double');
+cell = zeros(movie1.channelCount, movie1.timeCount, 'double');
+nucleus = zeros(movie1.channelCount, movie1.timeCount, 'double');
+cytoplasm = zeros(movie1.channelCount, movie1.timeCount, 'double');
 
 for i = 1:movie1.channelCount;
     time_mid = ceil(movie1.timeCount/2);
